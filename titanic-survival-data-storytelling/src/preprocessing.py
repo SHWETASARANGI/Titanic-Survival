@@ -81,12 +81,13 @@ def clean_columns(df : pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-def preprocess_data(path : str) -> pd.DataFrame:
+def preprocess_data(raw_path: str, processed_path: str) -> pd.DataFrame:
     """
     Preprocesses the data by loading it, handling missing values, adding new features, and cleaning column names.
     
     Parameters:
-    path (str): The path to the CSV file containing the data.
+    raw_path (str): The path to the raw CSV file.
+    processed_path (str): The path where the processed CSV file will be saved.
     
     Returns:
     pd.DataFrame: The preprocessed DataFrame ready for analysis or modeling.
