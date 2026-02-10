@@ -92,7 +92,7 @@ def preprocess_data(raw_path: str, processed_path: str) -> pd.DataFrame:
     Returns:
     pd.DataFrame: The preprocessed DataFrame ready for analysis or modeling.
     """
-    df = load_data(path)
+    df = load_data(raw_path)
     df = handle_missing_values(df)
     df = add_features(df)
     df = clean_columns(df)
