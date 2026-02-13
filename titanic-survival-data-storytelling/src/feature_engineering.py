@@ -15,18 +15,20 @@ def select_features(df : pd.DataFrame, features : list) -> pd.DataFrame:
     features = df.copy()
 
     # Encode Sex (interpretable binary)
-    features["sex"] = features["sex"].map({"male": 0, "female": 1})
+    if "sex" in features.columns:
+        features["sex"] = features["sex"].map({"male": 0, "female": 1})
 
     # Ensure Pclass is treated as ordinal
-    features["pclass"] = features["pclass"].astype(int)
+    if "pclass" in features.columns:
+        features["pclass"] = features["pclass"].astype(int)
 
     selected_columns = [
         "sex",
         "pclass",
         "age",
         "logfare",
-        "familysize",
-        "isalone"
+        "famil_ysize",
+        "is_alone"
     ]
 
     return features[selected_columns]

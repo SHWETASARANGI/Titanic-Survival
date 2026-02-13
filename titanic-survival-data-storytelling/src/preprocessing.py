@@ -84,7 +84,12 @@ def preprocess_data(raw_path: str, processed_path: str) -> pd.DataFrame:
     df = add_features(df)
 
     # Sanity check for storytelling / modeling
-    assert "survived" in df.columns, "Target column 'survived' is missing"
+    is_training = "survived" in df.columns
+
+    if is_training:
+        print("Training data detected (target present)")
+    else:
+        print("Inference data detected (no target)")
 
     # Ensure output directory exists
     Path(processed_path).parent.mkdir(parents=True, exist_ok=True)
